@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<classpath>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="src" path="mini-project-client/src/main/java"/>
-	<classpathentry kind="src" path="mini-project-server/src/main/java"/>
-	<classpathentry kind="lib" path="mini-project-client/gradle/wrapper/gradle-wrapper.jar"/>
-	<classpathentry kind="lib" path="mini-project-server/gradle/wrapper/gradle-wrapper.jar"/>
-	<classpathentry kind="output" path="bin"/>
-</classpath>
