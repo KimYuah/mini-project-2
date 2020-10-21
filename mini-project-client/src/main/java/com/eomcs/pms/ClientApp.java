@@ -22,7 +22,15 @@ public class ClientApp {
     port = Integer.parseInt(args[1]);
 
     while (true) {
-      String input = Prompt.inputString("명령> ");
+      System.out.println("\n┌----------------------------------┐");
+      System.out.println("\n     운세 시스템 이용방법 : ");
+      System.out.println("      회원등록 : /member/add ");
+      System.out.println("      운세보기 : /moneyfortune");
+      System.out.println("      포춘쿠키 : /fortunecookie");
+      System.out.println("      채팅운세상담 : /chatfortune");
+      System.out.println("      종료 : stop");
+      System.out.println("\n└----------------------------------┘");
+      String input = Prompt.inputString("\n명령> ");
       if (input.equalsIgnoreCase("quit"))
         break;
 
@@ -31,7 +39,8 @@ public class ClientApp {
       if (input.equalsIgnoreCase("stop"))
         break;
     }
-    System.out.println("안녕!");
+    System.out.println("\n * 다음에 또 이용해주세요! * ");
+    System.out.println("\n * 운세 시스템을 종료합니다! * \n");
 
 
   }

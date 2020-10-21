@@ -63,7 +63,7 @@ public class ServerApp {
     notifyApplicationContextListenerOnServiceStarted();
 
     try (ServerSocket serverSocket = new ServerSocket(port)) {
-      System.out.println("서버 실행 중...");
+      System.out.println("\n회원님을 기다리는 중...");
 
       while (true) {
         Socket clientSocket = serverSocket.accept();
@@ -104,7 +104,7 @@ public class ServerApp {
     } catch (Exception e) {
       System.out.println("스레드풀 종료 중 오류 발생!");
     }
-    System.out.println("운세 확인 시스템 종료합니다!");
+    System.out.println("\n * 운세 확인 시스템을 종료합니다! *");
   }
 
   public static void main(String[] args) {
@@ -120,7 +120,7 @@ public class ServerApp {
 
   private static void handleClient(Socket clientSocket) {
     InetAddress address = clientSocket.getInetAddress();
-    System.out.printf("클라이언트(%s)가 연결되었습니다.\n",
+    System.out.printf("회원(%s)님과 연결되었습니다.\n",
         address.getHostAddress());
 
     try (Socket socket = clientSocket; // try 블록을 떠날 때 close()가 자동 호출된다.
@@ -133,7 +133,7 @@ public class ServerApp {
 
       if (request.equalsIgnoreCase("stop")) {
         stop = true; // 서버의 상태를 멈추라는 의미로 true로 설정한다.
-        out.println("서버를 종료하는 중입니다!");
+        out.println("\n운세 확인 시스템을 종료 합니다!");
         out.println();
         out.flush();
         return;
@@ -143,7 +143,7 @@ public class ServerApp {
       if (command != null) {
         command.execute(out, in);
       } else {
-        out.println("해당 명령을 처리할 수 없습니다!");
+        out.println("\n해당 명령을 처리할 수 없습니다!");
       }
 
       // 응답의 끝을 알리는 빈 문자열을 보낸다.
@@ -151,10 +151,10 @@ public class ServerApp {
       out.flush();
 
     } catch (Exception e) {
-      System.out.println("클라이언트와의 통신 오류!");
+      System.out.println("회원님과의 통신에 오류가 생겼습니다!");
     }
 
-    System.out.printf("클라이언트(%s)와의 연결을 끊었습니다.\n",
+    System.out.printf("회원(%s)님과의 연결을 끊었습니다.\n",
         address.getHostAddress());
   }
 }

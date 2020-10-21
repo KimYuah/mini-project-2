@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 import com.eomcs.context.ApplicationContextListener;
 import com.eomcs.pms.domain.Board;
+import com.eomcs.pms.domain.Fortune;
 import com.eomcs.pms.domain.Member;
 import com.eomcs.pms.domain.Project;
 import com.eomcs.pms.domain.Task;
@@ -13,12 +14,14 @@ import com.eomcs.pms.handler.BoardDetailCommand;
 import com.eomcs.pms.handler.BoardListCommand;
 import com.eomcs.pms.handler.BoardUpdateCommand;
 import com.eomcs.pms.handler.CalculatorCommand;
+import com.eomcs.pms.handler.FortuneCommand;
 import com.eomcs.pms.handler.HelloCommand;
 import com.eomcs.pms.handler.MemberAddCommand;
 import com.eomcs.pms.handler.MemberDeleteCommand;
 import com.eomcs.pms.handler.MemberDetailCommand;
 import com.eomcs.pms.handler.MemberListCommand;
 import com.eomcs.pms.handler.MemberUpdateCommand;
+import com.eomcs.pms.handler.MoneyCommand;
 import com.eomcs.pms.handler.ProjectAddCommand;
 import com.eomcs.pms.handler.ProjectDeleteCommand;
 import com.eomcs.pms.handler.ProjectDetailCommand;
@@ -41,6 +44,7 @@ public class RequestMappingListener implements ApplicationContextListener {
     List<Member> memberList = (List<Member>) context.get("memberList");
     List<Project> projectList = (List<Project>) context.get("projectList");
     List<Task> taskList = (List<Task>) context.get("taskList");
+    List<Fortune> fortuneList = (List<Fortune>) context.get("fortuneList");
 
     context.put("/board/add", new BoardAddCommand(boardList));
     context.put("/board/list", new BoardListCommand(boardList));
@@ -70,6 +74,10 @@ public class RequestMappingListener implements ApplicationContextListener {
     context.put("/hello", new HelloCommand());
 
     context.put("/calc", new CalculatorCommand());
+
+    context.put("/fortune", new FortuneCommand(fortuneList));
+
+    context.put("/moneyfortune", new MoneyCommand());
   }
 
   @Override
