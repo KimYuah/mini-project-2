@@ -104,7 +104,7 @@ public class ServerApp {
     } catch (Exception e) {
       System.out.println("스레드풀 종료 중 오류 발생!");
     }
-    System.out.println("서버 종료!");
+    System.out.println("운세 확인 시스템 종료합니다!");
   }
 
   public static void main(String[] args) {
@@ -129,6 +129,7 @@ public class ServerApp {
 
       // 클라이언트가 보낸 요청을 읽는다.
       String request = in.readLine();
+
 
       if (request.equalsIgnoreCase("stop")) {
         stop = true; // 서버의 상태를 멈추라는 의미로 true로 설정한다.
