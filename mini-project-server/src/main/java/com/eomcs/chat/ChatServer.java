@@ -30,20 +30,20 @@ public class ChatServer {
 class ChatThread extends Thread{
     private Socket sock;
     private String id;
-    private BufferedReader br;
+    private BufferedReader in;
     private HashMap<String, Object> hm;
     private boolean initFlag = false;
     public ChatThread(Socket sock, HashMap<String,Object> hm) {
         this.sock = sock;
         this.hm = hm;
         try {
-            PrintWriter pw = new PrintWriter(new OutputStreamWriter(sock.getOutputStream()));
-            br = new BufferedReader(new InputStreamReader(sock.getInputStream()));
-            id = br.readLine();
+            PrintWriter out = new PrintWriter(new OutputStreamWriter(sock.getOutputStream()));
+            in = new BufferedReader(new InputStreamReader(sock.getInputStream()));
+            id = in.readLine();
             broadcast(id + "님이 접속하셨습니다.");
             System.out.println("접속한 사용자의 아이디 : "+id);
             synchronized (hm) {
-                hm.put(this.id, pw);
+                hm.put(this.id, out);
             }
             initFlag = true;
         } catch (Exception e) {
@@ -54,7 +54,7 @@ class ChatThread extends Thread{
     public void run() {
         try {
             String line = null;
-            while((line = br.readLine()) != null) {
+            while((line = in.readLine()) != null) {
                 if(line.equals("/quit")) {
                     break;
                 }
@@ -88,9 +88,9 @@ class ChatThread extends Thread{
             String msg2 = msg.substring(end +1);
             Object obj = hm.get(to);
             if(obj != null) {
-                PrintWriter pw = (PrintWriter)obj;
-                pw.println(id + "님이 다음의 귓속말을 보내셨습니다. : " + msg2);
-                pw.flush();
+                PrintWriter out = (PrintWriter)obj;
+                out.println(id + "님이 다음의 귓속말을 보내셨습니다. : " + msg2);
+                out.flush();
             }
         }
     }
