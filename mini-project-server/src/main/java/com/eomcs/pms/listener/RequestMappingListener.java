@@ -12,6 +12,7 @@ import com.eomcs.pms.handler.BoardDetailCommand;
 import com.eomcs.pms.handler.BoardListCommand;
 import com.eomcs.pms.handler.BoardUpdateCommand;
 import com.eomcs.pms.handler.CalculatorCommand;
+import com.eomcs.pms.handler.ChatFortune;
 import com.eomcs.pms.handler.FortuneCommand;
 import com.eomcs.pms.handler.HelloCommand;
 import com.eomcs.pms.handler.MemberAddCommand;
@@ -19,7 +20,6 @@ import com.eomcs.pms.handler.MemberDeleteCommand;
 import com.eomcs.pms.handler.MemberDetailCommand;
 import com.eomcs.pms.handler.MemberListCommand;
 import com.eomcs.pms.handler.MemberUpdateCommand;
-import com.eomcs.pms.handler.MoneyCommand;
 
 // 클라이언트 요청을 처리할 커맨드 객체를 준비한다.
 public class RequestMappingListener implements ApplicationContextListener {
@@ -45,14 +45,17 @@ public class RequestMappingListener implements ApplicationContextListener {
     context.put("/member/update", new MemberUpdateCommand(memberList));
     context.put("/member/delete", new MemberDeleteCommand(memberList));
 
+    context.put("/fortune", new FortuneCommand(fortuneList));
+
+    context.put("/chatfortune", new ChatFortune());
 
     context.put("/hello", new HelloCommand());
 
     context.put("/calc", new CalculatorCommand());
 
-    context.put("/fortune", new FortuneCommand(fortuneList));
 
-    context.put("/moneyfortune", new MoneyCommand());
+    context.put("/moneyfortune", new CalculatorCommand());
+
   }
 
   @Override
