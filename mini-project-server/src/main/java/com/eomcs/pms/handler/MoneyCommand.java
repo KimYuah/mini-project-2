@@ -19,6 +19,7 @@ public class MoneyCommand implements Command {
       String input = Prompt.inputString("입력> ", out, in);
 
       switch (input) {
+<<<<<<< HEAD
         case "1": out.println("\n [ 성격운  ]");
         	break;
         case "2": 
@@ -32,9 +33,15 @@ public class MoneyCommand implements Command {
         case "3": out.println("\n 3번의 학업운 "); out.println("길가다가 돈 주울 수 있을지도...?!! 금전운 60%"); break;
         case "4": out.println("\n 4번의 금전운 "); out.println("당장 로또를 사러가세요! 금전운 100%"); break;
         case "5": out.println("\n 5번의 애정운 "); out.println("나쁘지않아요!! 금전운 70%"); break;
+=======
+        case "1": out.println("\n[1번의 금전운]\n지갑 잘 챙기세요! 금전운 50%"); break;
+        case "2": out.println("\n[2번의 금전운]\n우와!! 부러워요... 저 백원만 주세요!! 금전운 80%"); break;
+        case "3": out.println("\n[3번의 금전운]\n길가다가 돈 주울 수 있을지도...?!! 금전운 60%"); break;
+        case "4": out.println("\n[4번의 금전운]\n당장 로또를 사러가세요! 금전운 100%"); break;
+        case "5": out.println("\n[5번의 금전운]\n나쁘지않아요!! 금전운 70%"); break;
+>>>>>>> branch 'main' of https://github.com/kimyuah/mini-project-2.git
         default:
           out.println("잘못된 번호를 입력하셨습니다..");
-          out.flush();
           return;
 
       }
