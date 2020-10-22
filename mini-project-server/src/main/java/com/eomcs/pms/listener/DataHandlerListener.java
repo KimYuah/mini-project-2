@@ -33,13 +33,11 @@ public class DataHandlerListener implements ApplicationContextListener {
     loadData(boardList, boardFile, Board[].class);
     loadData(memberList, memberFile, Member[].class);
 
-
     // 옵저버가 파일에서 데이터(게시글,회원,프로젝트,작업)를 읽어
     // List 컬렉션에 저장한 다음,
     // 발행자(App 객체)가 사용할 수 있도록 맵 객체에 담아서 공유한다.
     context.put("boardList", boardList);
     context.put("memberList", memberList);
-
   }
 
   @Override
@@ -48,7 +46,6 @@ public class DataHandlerListener implements ApplicationContextListener {
     // 데이터를 파일에 저장
     saveData(boardList, boardFile);
     saveData(memberList, memberFile);
-
   }
 
   private <T> void loadData(
@@ -61,8 +58,8 @@ public class DataHandlerListener implements ApplicationContextListener {
     try {
       in = new BufferedReader(new FileReader(file));
       list.addAll(Arrays.asList(new Gson().fromJson(in, clazz)));
-      System.out.printf("'%s' 파일에서 총 %d 개의 객체를 로딩했습니다.\n",
-          file.getName(), list.size());
+      //System.out.printf("'%s' 파일에서 총 %d 개의 객체를 로딩했습니다.\n",
+      //    file.getName(), list.size());
 
     } catch (Exception e) {
       System.out.printf("'%s' 파일 읽기 중 오류 발생! - %s\n",
@@ -88,8 +85,8 @@ public class DataHandlerListener implements ApplicationContextListener {
 
       out.flush();
 
-      System.out.printf("총 %d 개의 객체를 '%s' 파일에 저장했습니다.\n",
-          list.size(), file.getName());
+      //System.out.printf("총 %d 개의 객체를 '%s' 파일에 저장했습니다.\n",
+       //   list.size(), file.getName());
 
     } catch (IOException e) {
       System.out.printf("객체를 '%s' 파일에  쓰는 중 오류 발생! - %s\n",

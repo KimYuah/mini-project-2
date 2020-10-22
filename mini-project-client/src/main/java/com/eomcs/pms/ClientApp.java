@@ -22,6 +22,12 @@ public class ClientApp {
     port = Integer.parseInt(args[1]);
 
     while (true) {
+      System.out.println("   ┌-----------------------------------┐");
+      System.out.println("\n         # 운세시스템사용방법 #\n");
+      System.out.println("          * 운세보기 : /fortune\n");
+      System.out.println("          * 운세상담 : /chatfortune\n");
+      System.out.println("          * 종료 : stop 또는 quit\n");
+      System.out.println("   └-----------------------------------┘");
       String input = Prompt.inputString("명령> ");
       if (input.equalsIgnoreCase("quit"))
         break;

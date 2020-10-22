@@ -11,6 +11,7 @@ import com.eomcs.pms.handler.BoardDetailCommand;
 import com.eomcs.pms.handler.BoardListCommand;
 import com.eomcs.pms.handler.BoardUpdateCommand;
 import com.eomcs.pms.handler.CalculatorCommand;
+import com.eomcs.pms.handler.ChatFortune;
 import com.eomcs.pms.handler.HelloCommand;
 import com.eomcs.pms.handler.MemberAddCommand;
 import com.eomcs.pms.handler.MemberDeleteCommand;
@@ -41,7 +42,7 @@ public class RequestMappingListener implements ApplicationContextListener {
     context.put("/member/update", new MemberUpdateCommand(memberList));
     context.put("/member/delete", new MemberDeleteCommand(memberList));
 
-
+    context.put("/chatfortune", new ChatFortune());
     context.put("/hello", new HelloCommand());
 
     context.put("/calc", new CalculatorCommand());

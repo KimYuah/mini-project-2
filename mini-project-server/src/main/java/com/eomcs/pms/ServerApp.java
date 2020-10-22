@@ -59,11 +59,10 @@ public class ServerApp {
   }
 
   public void service(int port) {
-
     notifyApplicationContextListenerOnServiceStarted();
 
     try (ServerSocket serverSocket = new ServerSocket(port)) {
-      System.out.println("서버 실행 중...");
+      System.out.println("접속을 기다리는 중...");
 
       while (true) {
         Socket clientSocket = serverSocket.accept();
