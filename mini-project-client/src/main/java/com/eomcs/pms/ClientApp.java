@@ -71,7 +71,7 @@ public class ClientApp {
         // 아무것도 안한다.
         // 서버가 stop 할 기회를 주기 위함이다.
       } catch (Exception e) {
-        // 아무것도 안한다.
+      
       }
     }
   }
